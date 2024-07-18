@@ -1,0 +1,1100 @@
+
+Sistem Penggerak - Transmitter v2.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         0000000e  00800100  000006ba  0000074e  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000006ba  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000029  0080010e  0080010e  0000075c  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000075c  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  0000078c  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000150  00000000  00000000  000007cc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   0000187f  00000000  00000000  0000091c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000c05  00000000  00000000  0000219b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   0000092b  00000000  00000000  00002da0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  000003ac  00000000  00000000  000036cc  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000a13  00000000  00000000  00003a78  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000009fd  00000000  00000000  0000448b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000120  00000000  00000000  00004e88  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 35 00 	jmp	0x6a	; 0x6a <__ctors_end>
+   4:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+   8:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+   c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  10:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  14:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  18:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  1c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  20:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  24:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  28:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  2c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  30:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  34:	0c 94 46 01 	jmp	0x28c	; 0x28c <__vector_13>
+  38:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  3c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  40:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  44:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  48:	0c 94 3c 01 	jmp	0x278	; 0x278 <__vector_18>
+  4c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  50:	0c 94 16 01 	jmp	0x22c	; 0x22c <__vector_20>
+  54:	0c 94 92 01 	jmp	0x324	; 0x324 <__vector_21>
+  58:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  5c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  60:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  64:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+
+00000068 <__ctors_start>:
+  68:	02 02       	muls	r16, r18
+
+0000006a <__ctors_end>:
+  6a:	11 24       	eor	r1, r1
+  6c:	1f be       	out	0x3f, r1	; 63
+  6e:	cf ef       	ldi	r28, 0xFF	; 255
+  70:	d8 e0       	ldi	r29, 0x08	; 8
+  72:	de bf       	out	0x3e, r29	; 62
+  74:	cd bf       	out	0x3d, r28	; 61
+
+00000076 <__do_copy_data>:
+  76:	11 e0       	ldi	r17, 0x01	; 1
+  78:	a0 e0       	ldi	r26, 0x00	; 0
+  7a:	b1 e0       	ldi	r27, 0x01	; 1
+  7c:	ea eb       	ldi	r30, 0xBA	; 186
+  7e:	f6 e0       	ldi	r31, 0x06	; 6
+  80:	02 c0       	rjmp	.+4      	; 0x86 <__do_copy_data+0x10>
+  82:	05 90       	lpm	r0, Z+
+  84:	0d 92       	st	X+, r0
+  86:	ae 30       	cpi	r26, 0x0E	; 14
+  88:	b1 07       	cpc	r27, r17
+  8a:	d9 f7       	brne	.-10     	; 0x82 <__do_copy_data+0xc>
+
+0000008c <__do_clear_bss>:
+  8c:	21 e0       	ldi	r18, 0x01	; 1
+  8e:	ae e0       	ldi	r26, 0x0E	; 14
+  90:	b1 e0       	ldi	r27, 0x01	; 1
+  92:	01 c0       	rjmp	.+2      	; 0x96 <.do_clear_bss_start>
+
+00000094 <.do_clear_bss_loop>:
+  94:	1d 92       	st	X+, r1
+
+00000096 <.do_clear_bss_start>:
+  96:	a7 33       	cpi	r26, 0x37	; 55
+  98:	b2 07       	cpc	r27, r18
+  9a:	e1 f7       	brne	.-8      	; 0x94 <.do_clear_bss_loop>
+
+0000009c <__do_global_ctors>:
+  9c:	10 e0       	ldi	r17, 0x00	; 0
+  9e:	c5 e3       	ldi	r28, 0x35	; 53
+  a0:	d0 e0       	ldi	r29, 0x00	; 0
+  a2:	04 c0       	rjmp	.+8      	; 0xac <__do_global_ctors+0x10>
+  a4:	21 97       	sbiw	r28, 0x01	; 1
+  a6:	fe 01       	movw	r30, r28
+  a8:	0e 94 55 03 	call	0x6aa	; 0x6aa <__tablejump2__>
+  ac:	c4 33       	cpi	r28, 0x34	; 52
+  ae:	d1 07       	cpc	r29, r17
+  b0:	c9 f7       	brne	.-14     	; 0xa4 <__do_global_ctors+0x8>
+  b2:	0e 94 b8 01 	call	0x370	; 0x370 <main>
+  b6:	0c 94 5b 03 	jmp	0x6b6	; 0x6b6 <_exit>
+
+000000ba <__bad_interrupt>:
+  ba:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000be <_Z11timer1_initv>:
+
+void JoystickButton::data_reset(void)
+{
+	this->_x_data = 128;
+	this->_y_data = 128;
+	this->_button_state = 0x00;
+  be:	8f e9       	ldi	r24, 0x9F	; 159
+  c0:	9f e0       	ldi	r25, 0x0F	; 15
+  c2:	90 93 87 00 	sts	0x0087, r25	; 0x800087 <__TEXT_REGION_LENGTH__+0x7f8087>
+  c6:	80 93 86 00 	sts	0x0086, r24	; 0x800086 <__TEXT_REGION_LENGTH__+0x7f8086>
+  ca:	82 e0       	ldi	r24, 0x02	; 2
+  cc:	80 93 80 00 	sts	0x0080, r24	; 0x800080 <__TEXT_REGION_LENGTH__+0x7f8080>
+  d0:	e1 e8       	ldi	r30, 0x81	; 129
+  d2:	f0 e0       	ldi	r31, 0x00	; 0
+  d4:	88 e1       	ldi	r24, 0x18	; 24
+  d6:	80 83       	st	Z, r24
+  d8:	81 e0       	ldi	r24, 0x01	; 1
+  da:	80 93 6f 00 	sts	0x006F, r24	; 0x80006f <__TEXT_REGION_LENGTH__+0x7f806f>
+  de:	10 92 85 00 	sts	0x0085, r1	; 0x800085 <__TEXT_REGION_LENGTH__+0x7f8085>
+  e2:	10 92 84 00 	sts	0x0084, r1	; 0x800084 <__TEXT_REGION_LENGTH__+0x7f8084>
+  e6:	80 81       	ld	r24, Z
+  e8:	82 60       	ori	r24, 0x02	; 2
+  ea:	80 83       	st	Z, r24
+  ec:	08 95       	ret
+
+000000ee <_Z8ADC_Initv>:
+  ee:	80 e6       	ldi	r24, 0x60	; 96
+  f0:	80 93 7c 00 	sts	0x007C, r24	; 0x80007c <__TEXT_REGION_LENGTH__+0x7f807c>
+  f4:	8f ea       	ldi	r24, 0xAF	; 175
+  f6:	80 93 7a 00 	sts	0x007A, r24	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+  fa:	86 e0       	ldi	r24, 0x06	; 6
+  fc:	80 93 7b 00 	sts	0x007B, r24	; 0x80007b <__TEXT_REGION_LENGTH__+0x7f807b>
+ 100:	87 b1       	in	r24, 0x07	; 7
+ 102:	8e 7f       	andi	r24, 0xFE	; 254
+ 104:	87 b9       	out	0x07, r24	; 7
+ 106:	83 e0       	ldi	r24, 0x03	; 3
+ 108:	80 93 7e 00 	sts	0x007E, r24	; 0x80007e <__TEXT_REGION_LENGTH__+0x7f807e>
+ 10c:	08 95       	ret
+
+0000010e <_Z14ADC_change_muxh>:
+ 10e:	ec e7       	ldi	r30, 0x7C	; 124
+ 110:	f0 e0       	ldi	r31, 0x00	; 0
+ 112:	90 81       	ld	r25, Z
+ 114:	90 7f       	andi	r25, 0xF0	; 240
+ 116:	8f 70       	andi	r24, 0x0F	; 15
+ 118:	89 2b       	or	r24, r25
+ 11a:	80 83       	st	Z, r24
+ 11c:	08 95       	ret
+
+0000011e <_ZN14JoystickButtonC1Ev>:
+ 11e:	fc 01       	movw	r30, r24
+ 120:	80 e8       	ldi	r24, 0x80	; 128
+ 122:	80 83       	st	Z, r24
+ 124:	81 83       	std	Z+1, r24	; 0x01
+ 126:	12 82       	std	Z+2, r1	; 0x02
+ 128:	13 82       	std	Z+3, r1	; 0x03
+ 12a:	80 e0       	ldi	r24, 0x00	; 0
+ 12c:	0e 94 87 00 	call	0x10e	; 0x10e <_Z14ADC_change_muxh>
+ 130:	08 95       	ret
+
+00000132 <_ZN14JoystickButton4initEv>:
+ 132:	8a b1       	in	r24, 0x0a	; 10
+ 134:	83 70       	andi	r24, 0x03	; 3
+ 136:	8a b9       	out	0x0a, r24	; 10
+ 138:	8b b1       	in	r24, 0x0b	; 11
+ 13a:	83 70       	andi	r24, 0x03	; 3
+ 13c:	8b b9       	out	0x0b, r24	; 11
+ 13e:	0e 94 5f 00 	call	0xbe	; 0xbe <_Z11timer1_initv>
+ 142:	0e 94 77 00 	call	0xee	; 0xee <_Z8ADC_Initv>
+ 146:	ea e7       	ldi	r30, 0x7A	; 122
+ 148:	f0 e0       	ldi	r31, 0x00	; 0
+ 14a:	80 81       	ld	r24, Z
+ 14c:	80 64       	ori	r24, 0x40	; 64
+ 14e:	80 83       	st	Z, r24
+ 150:	08 95       	ret
+
+00000152 <_ZN14JoystickButton13read_joystickEv>:
+}
+
+void JoystickButton::read_joystick(void)
+{
+ 152:	fc 01       	movw	r30, r24
+	switch (this->_pot_state)
+ 154:	83 81       	ldd	r24, Z+3	; 0x03
+ 156:	88 23       	and	r24, r24
+ 158:	19 f0       	breq	.+6      	; 0x160 <_ZN14JoystickButton13read_joystickEv+0xe>
+ 15a:	81 30       	cpi	r24, 0x01	; 1
+ 15c:	69 f0       	breq	.+26     	; 0x178 <_ZN14JoystickButton13read_joystickEv+0x26>
+ 15e:	08 95       	ret
+	{
+	case X_POT:
+		// Read Converted analog data in A/D Register
+		dummy = (char)ADCL;
+ 160:	80 91 78 00 	lds	r24, 0x0078	; 0x800078 <__TEXT_REGION_LENGTH__+0x7f8078>
+ 164:	80 93 0e 01 	sts	0x010E, r24	; 0x80010e <__data_end>
+		this->_x_data = (unsigned char)ADCH;
+ 168:	80 91 79 00 	lds	r24, 0x0079	; 0x800079 <__TEXT_REGION_LENGTH__+0x7f8079>
+ 16c:	80 83       	st	Z, r24
+		// Change mux for next conversion
+		this->_pot_state = Y_POT;
+ 16e:	81 e0       	ldi	r24, 0x01	; 1
+ 170:	83 83       	std	Z+3, r24	; 0x03
+		ADC_change_mux(JOY_Y);
+ 172:	0e 94 87 00 	call	0x10e	; 0x10e <_Z14ADC_change_muxh>
+		break;
+ 176:	08 95       	ret
+	case Y_POT:
+		// Read Converted analog data in A/D Register
+		dummy = (char)ADCL;
+ 178:	80 91 78 00 	lds	r24, 0x0078	; 0x800078 <__TEXT_REGION_LENGTH__+0x7f8078>
+ 17c:	80 93 0e 01 	sts	0x010E, r24	; 0x80010e <__data_end>
+		this->_y_data = (unsigned char)ADCH;
+ 180:	80 91 79 00 	lds	r24, 0x0079	; 0x800079 <__TEXT_REGION_LENGTH__+0x7f8079>
+ 184:	81 83       	std	Z+1, r24	; 0x01
+		// Change mux for next conversion
+		this->_pot_state = X_POT;
+ 186:	13 82       	std	Z+3, r1	; 0x03
+		ADC_change_mux(JOY_X);
+ 188:	80 e0       	ldi	r24, 0x00	; 0
+ 18a:	0e 94 87 00 	call	0x10e	; 0x10e <_Z14ADC_change_muxh>
+ 18e:	08 95       	ret
+
+00000190 <_ZN14JoystickButton11read_buttonEv>:
+	}
+}
+
+void JoystickButton::read_button(void)
+{
+	this->_button_state = BUTTON_PIN;
+ 190:	29 b1       	in	r18, 0x09	; 9
+	this->_button_state = (~(this->_button_state)) & BUTTON_DDRCONFIG;
+ 192:	20 95       	com	r18
+ 194:	2c 7f       	andi	r18, 0xFC	; 252
+ 196:	fc 01       	movw	r30, r24
+ 198:	22 83       	std	Z+2, r18	; 0x02
+ 19a:	08 95       	ret
+
+0000019c <_ZN14JoystickButton13return_x_dataEv>:
+}
+
+unsigned char JoystickButton::return_x_data(void)
+{
+	return this->_x_data;
+}
+ 19c:	fc 01       	movw	r30, r24
+ 19e:	80 81       	ld	r24, Z
+ 1a0:	08 95       	ret
+
+000001a2 <_ZN14JoystickButton13return_y_dataEv>:
+
+unsigned char JoystickButton::return_y_data(void)
+{
+	return this->_y_data;
+}
+ 1a2:	fc 01       	movw	r30, r24
+ 1a4:	81 81       	ldd	r24, Z+1	; 0x01
+ 1a6:	08 95       	ret
+
+000001a8 <_ZN14JoystickButton18return_button_dataEv>:
+
+unsigned char JoystickButton::return_button_data(void)
+{
+	return this->_button_state;
+ 1a8:	fc 01       	movw	r30, r24
+ 1aa:	82 81       	ldd	r24, Z+2	; 0x02
+ 1ac:	08 95       	ret
+
+000001ae <_Z41__static_initialization_and_destruction_0ii>:
+			LED_time_ms = 0;
+			LED_PORT = (LED_PORT & (~BOARD_LED)) | ((~LED_PORT) & BOARD_LED);
+		}
+    }
+	return 0;
+}
+ 1ae:	01 97       	sbiw	r24, 0x01	; 1
+ 1b0:	61 f4       	brne	.+24     	; 0x1ca <_Z41__static_initialization_and_destruction_0ii+0x1c>
+ 1b2:	6f 3f       	cpi	r22, 0xFF	; 255
+ 1b4:	7f 4f       	sbci	r23, 0xFF	; 255
+ 1b6:	49 f4       	brne	.+18     	; 0x1ca <_Z41__static_initialization_and_destruction_0ii+0x1c>
+unsigned long	LED_time_ms;
+UINT2BYTES		dataSent;
+unsigned char	counter;
+
+// Inisiasi Data
+RFData myRFData(0x40);
+ 1b8:	60 e4       	ldi	r22, 0x40	; 64
+ 1ba:	83 e1       	ldi	r24, 0x13	; 19
+ 1bc:	91 e0       	ldi	r25, 0x01	; 1
+ 1be:	0e 94 40 02 	call	0x480	; 0x480 <_ZN6RFDataC1Eh>
+JoystickButton myJSButton;
+ 1c2:	8f e0       	ldi	r24, 0x0F	; 15
+ 1c4:	91 e0       	ldi	r25, 0x01	; 1
+ 1c6:	0e 94 8f 00 	call	0x11e	; 0x11e <_ZN14JoystickButtonC1Ev>
+ 1ca:	08 95       	ret
+
+000001cc <_Z5setupv>:
+
+/** SETUP **/
+void setup(void)
+{
+	time_ms = 0;
+ 1cc:	10 92 33 01 	sts	0x0133, r1	; 0x800133 <time_ms>
+ 1d0:	10 92 34 01 	sts	0x0134, r1	; 0x800134 <time_ms+0x1>
+ 1d4:	10 92 35 01 	sts	0x0135, r1	; 0x800135 <time_ms+0x2>
+ 1d8:	10 92 36 01 	sts	0x0136, r1	; 0x800136 <time_ms+0x3>
+	LED_time_ms = 0;
+ 1dc:	10 92 2f 01 	sts	0x012F, r1	; 0x80012f <LED_time_ms>
+ 1e0:	10 92 30 01 	sts	0x0130, r1	; 0x800130 <LED_time_ms+0x1>
+ 1e4:	10 92 31 01 	sts	0x0131, r1	; 0x800131 <LED_time_ms+0x2>
+ 1e8:	10 92 32 01 	sts	0x0132, r1	; 0x800132 <LED_time_ms+0x3>
+	dataSent.uiData = 0;
+ 1ec:	10 92 2e 01 	sts	0x012E, r1	; 0x80012e <dataSent+0x1>
+ 1f0:	10 92 2d 01 	sts	0x012D, r1	; 0x80012d <dataSent>
+	counter = 1;
+ 1f4:	81 e0       	ldi	r24, 0x01	; 1
+ 1f6:	80 93 2c 01 	sts	0x012C, r24	; 0x80012c <counter>
+	DDRB = DDRB | BOARD_LED;
+ 1fa:	84 b1       	in	r24, 0x04	; 4
+ 1fc:	81 60       	ori	r24, 0x01	; 1
+ 1fe:	84 b9       	out	0x04, r24	; 4
+	LED_PORT = LED_PORT & (~BOARD_LED);
+ 200:	85 b1       	in	r24, 0x05	; 5
+ 202:	8e 7f       	andi	r24, 0xFE	; 254
+ 204:	85 b9       	out	0x05, r24	; 5
+	// Initiating communication
+	Serial.init(2400);
+ 206:	60 e6       	ldi	r22, 0x60	; 96
+ 208:	79 e0       	ldi	r23, 0x09	; 9
+ 20a:	80 e0       	ldi	r24, 0x00	; 0
+ 20c:	90 e0       	ldi	r25, 0x00	; 0
+ 20e:	0e 94 09 02 	call	0x412	; 0x412 <_ZN9tagSerial4initEm>
+	Serial.write("Hello World!");
+ 212:	80 e0       	ldi	r24, 0x00	; 0
+ 214:	91 e0       	ldi	r25, 0x01	; 1
+ 216:	0e 94 2d 02 	call	0x45a	; 0x45a <_ZN9tagSerial5writeEPc>
+	
+	// Initiating ADC and Timer1 for Joystick Data Routine
+	myJSButton.init();
+ 21a:	8f e0       	ldi	r24, 0x0F	; 15
+ 21c:	91 e0       	ldi	r25, 0x01	; 1
+ 21e:	0e 94 99 00 	call	0x132	; 0x132 <_ZN14JoystickButton4initEv>
+	
+	sei();
+ 222:	78 94       	sei
+	Serial.write(10);	
+ 224:	8a e0       	ldi	r24, 0x0A	; 10
+ 226:	0e 94 26 02 	call	0x44c	; 0x44c <_ZN9tagSerial5writeEc>
+ 22a:	08 95       	ret
+
+0000022c <__vector_20>:
+}
+
+/** INTERRUPTS  **/
+ISR(USART_TX_vect)
+{
+ 22c:	1f 92       	push	r1
+ 22e:	0f 92       	push	r0
+ 230:	0f b6       	in	r0, 0x3f	; 63
+ 232:	0f 92       	push	r0
+ 234:	11 24       	eor	r1, r1
+ 236:	2f 93       	push	r18
+ 238:	3f 93       	push	r19
+ 23a:	4f 93       	push	r20
+ 23c:	5f 93       	push	r21
+ 23e:	6f 93       	push	r22
+ 240:	7f 93       	push	r23
+ 242:	8f 93       	push	r24
+ 244:	9f 93       	push	r25
+ 246:	af 93       	push	r26
+ 248:	bf 93       	push	r27
+ 24a:	ef 93       	push	r30
+ 24c:	ff 93       	push	r31
+	myRFData.ISR_transmitting();
+ 24e:	83 e1       	ldi	r24, 0x13	; 19
+ 250:	91 e0       	ldi	r25, 0x01	; 1
+ 252:	0e 94 01 03 	call	0x602	; 0x602 <_ZN6RFData16ISR_transmittingEv>
+}
+ 256:	ff 91       	pop	r31
+ 258:	ef 91       	pop	r30
+ 25a:	bf 91       	pop	r27
+ 25c:	af 91       	pop	r26
+ 25e:	9f 91       	pop	r25
+ 260:	8f 91       	pop	r24
+ 262:	7f 91       	pop	r23
+ 264:	6f 91       	pop	r22
+ 266:	5f 91       	pop	r21
+ 268:	4f 91       	pop	r20
+ 26a:	3f 91       	pop	r19
+ 26c:	2f 91       	pop	r18
+ 26e:	0f 90       	pop	r0
+ 270:	0f be       	out	0x3f, r0	; 63
+ 272:	0f 90       	pop	r0
+ 274:	1f 90       	pop	r1
+ 276:	18 95       	reti
+
+00000278 <__vector_18>:
+ISR(USART_RX_vect)
+{
+ 278:	1f 92       	push	r1
+ 27a:	0f 92       	push	r0
+ 27c:	0f b6       	in	r0, 0x3f	; 63
+ 27e:	0f 92       	push	r0
+ 280:	11 24       	eor	r1, r1
+	// Empty
+}
+ 282:	0f 90       	pop	r0
+ 284:	0f be       	out	0x3f, r0	; 63
+ 286:	0f 90       	pop	r0
+ 288:	1f 90       	pop	r1
+ 28a:	18 95       	reti
+
+0000028c <__vector_13>:
+ISR(TIMER1_OVF_vect)
+{
+ 28c:	1f 92       	push	r1
+ 28e:	0f 92       	push	r0
+ 290:	0f b6       	in	r0, 0x3f	; 63
+ 292:	0f 92       	push	r0
+ 294:	11 24       	eor	r1, r1
+ 296:	2f 93       	push	r18
+ 298:	3f 93       	push	r19
+ 29a:	4f 93       	push	r20
+ 29c:	5f 93       	push	r21
+ 29e:	6f 93       	push	r22
+ 2a0:	7f 93       	push	r23
+ 2a2:	8f 93       	push	r24
+ 2a4:	9f 93       	push	r25
+ 2a6:	af 93       	push	r26
+ 2a8:	bf 93       	push	r27
+ 2aa:	ef 93       	push	r30
+ 2ac:	ff 93       	push	r31
+	time_ms += 2;
+ 2ae:	80 91 33 01 	lds	r24, 0x0133	; 0x800133 <time_ms>
+ 2b2:	90 91 34 01 	lds	r25, 0x0134	; 0x800134 <time_ms+0x1>
+ 2b6:	a0 91 35 01 	lds	r26, 0x0135	; 0x800135 <time_ms+0x2>
+ 2ba:	b0 91 36 01 	lds	r27, 0x0136	; 0x800136 <time_ms+0x3>
+ 2be:	02 96       	adiw	r24, 0x02	; 2
+ 2c0:	a1 1d       	adc	r26, r1
+ 2c2:	b1 1d       	adc	r27, r1
+ 2c4:	80 93 33 01 	sts	0x0133, r24	; 0x800133 <time_ms>
+ 2c8:	90 93 34 01 	sts	0x0134, r25	; 0x800134 <time_ms+0x1>
+ 2cc:	a0 93 35 01 	sts	0x0135, r26	; 0x800135 <time_ms+0x2>
+ 2d0:	b0 93 36 01 	sts	0x0136, r27	; 0x800136 <time_ms+0x3>
+	LED_time_ms += 2;
+ 2d4:	80 91 2f 01 	lds	r24, 0x012F	; 0x80012f <LED_time_ms>
+ 2d8:	90 91 30 01 	lds	r25, 0x0130	; 0x800130 <LED_time_ms+0x1>
+ 2dc:	a0 91 31 01 	lds	r26, 0x0131	; 0x800131 <LED_time_ms+0x2>
+ 2e0:	b0 91 32 01 	lds	r27, 0x0132	; 0x800132 <LED_time_ms+0x3>
+ 2e4:	02 96       	adiw	r24, 0x02	; 2
+ 2e6:	a1 1d       	adc	r26, r1
+ 2e8:	b1 1d       	adc	r27, r1
+ 2ea:	80 93 2f 01 	sts	0x012F, r24	; 0x80012f <LED_time_ms>
+ 2ee:	90 93 30 01 	sts	0x0130, r25	; 0x800130 <LED_time_ms+0x1>
+ 2f2:	a0 93 31 01 	sts	0x0131, r26	; 0x800131 <LED_time_ms+0x2>
+ 2f6:	b0 93 32 01 	sts	0x0132, r27	; 0x800132 <LED_time_ms+0x3>
+	myJSButton.read_button();
+ 2fa:	8f e0       	ldi	r24, 0x0F	; 15
+ 2fc:	91 e0       	ldi	r25, 0x01	; 1
+ 2fe:	0e 94 c8 00 	call	0x190	; 0x190 <_ZN14JoystickButton11read_buttonEv>
+}
+ 302:	ff 91       	pop	r31
+ 304:	ef 91       	pop	r30
+ 306:	bf 91       	pop	r27
+ 308:	af 91       	pop	r26
+ 30a:	9f 91       	pop	r25
+ 30c:	8f 91       	pop	r24
+ 30e:	7f 91       	pop	r23
+ 310:	6f 91       	pop	r22
+ 312:	5f 91       	pop	r21
+ 314:	4f 91       	pop	r20
+ 316:	3f 91       	pop	r19
+ 318:	2f 91       	pop	r18
+ 31a:	0f 90       	pop	r0
+ 31c:	0f be       	out	0x3f, r0	; 63
+ 31e:	0f 90       	pop	r0
+ 320:	1f 90       	pop	r1
+ 322:	18 95       	reti
+
+00000324 <__vector_21>:
+ISR(ADC_vect)
+{
+ 324:	1f 92       	push	r1
+ 326:	0f 92       	push	r0
+ 328:	0f b6       	in	r0, 0x3f	; 63
+ 32a:	0f 92       	push	r0
+ 32c:	11 24       	eor	r1, r1
+ 32e:	2f 93       	push	r18
+ 330:	3f 93       	push	r19
+ 332:	4f 93       	push	r20
+ 334:	5f 93       	push	r21
+ 336:	6f 93       	push	r22
+ 338:	7f 93       	push	r23
+ 33a:	8f 93       	push	r24
+ 33c:	9f 93       	push	r25
+ 33e:	af 93       	push	r26
+ 340:	bf 93       	push	r27
+ 342:	ef 93       	push	r30
+ 344:	ff 93       	push	r31
+	myJSButton.read_joystick();
+ 346:	8f e0       	ldi	r24, 0x0F	; 15
+ 348:	91 e0       	ldi	r25, 0x01	; 1
+ 34a:	0e 94 a9 00 	call	0x152	; 0x152 <_ZN14JoystickButton13read_joystickEv>
+}
+ 34e:	ff 91       	pop	r31
+ 350:	ef 91       	pop	r30
+ 352:	bf 91       	pop	r27
+ 354:	af 91       	pop	r26
+ 356:	9f 91       	pop	r25
+ 358:	8f 91       	pop	r24
+ 35a:	7f 91       	pop	r23
+ 35c:	6f 91       	pop	r22
+ 35e:	5f 91       	pop	r21
+ 360:	4f 91       	pop	r20
+ 362:	3f 91       	pop	r19
+ 364:	2f 91       	pop	r18
+ 366:	0f 90       	pop	r0
+ 368:	0f be       	out	0x3f, r0	; 63
+ 36a:	0f 90       	pop	r0
+ 36c:	1f 90       	pop	r1
+ 36e:	18 95       	reti
+
+00000370 <main>:
+
+/** MAIN ALGORITHM **/
+int main(void)
+{
+	setup();
+ 370:	0e 94 e6 00 	call	0x1cc	; 0x1cc <_Z5setupv>
+    /* Replace with your application code */
+    while (1) 
+    {
+		if (time_ms > 200)
+ 374:	80 91 33 01 	lds	r24, 0x0133	; 0x800133 <time_ms>
+ 378:	90 91 34 01 	lds	r25, 0x0134	; 0x800134 <time_ms+0x1>
+ 37c:	a0 91 35 01 	lds	r26, 0x0135	; 0x800135 <time_ms+0x2>
+ 380:	b0 91 36 01 	lds	r27, 0x0136	; 0x800136 <time_ms+0x3>
+ 384:	89 3c       	cpi	r24, 0xC9	; 201
+ 386:	91 05       	cpc	r25, r1
+ 388:	a1 05       	cpc	r26, r1
+ 38a:	b1 05       	cpc	r27, r1
+ 38c:	e8 f0       	brcs	.+58     	; 0x3c8 <main+0x58>
+		{
+			
+			time_ms = 0;
+ 38e:	10 92 33 01 	sts	0x0133, r1	; 0x800133 <time_ms>
+ 392:	10 92 34 01 	sts	0x0134, r1	; 0x800134 <time_ms+0x1>
+ 396:	10 92 35 01 	sts	0x0135, r1	; 0x800135 <time_ms+0x2>
+ 39a:	10 92 36 01 	sts	0x0136, r1	; 0x800136 <time_ms+0x3>
+			
+			myRFData.TX_updateData(
+ 39e:	8f e0       	ldi	r24, 0x0F	; 15
+ 3a0:	91 e0       	ldi	r25, 0x01	; 1
+ 3a2:	0e 94 d4 00 	call	0x1a8	; 0x1a8 <_ZN14JoystickButton18return_button_dataEv>
+ 3a6:	d8 2f       	mov	r29, r24
+ 3a8:	8f e0       	ldi	r24, 0x0F	; 15
+ 3aa:	91 e0       	ldi	r25, 0x01	; 1
+ 3ac:	0e 94 d1 00 	call	0x1a2	; 0x1a2 <_ZN14JoystickButton13return_y_dataEv>
+ 3b0:	c8 2f       	mov	r28, r24
+ 3b2:	8f e0       	ldi	r24, 0x0F	; 15
+ 3b4:	91 e0       	ldi	r25, 0x01	; 1
+ 3b6:	0e 94 ce 00 	call	0x19c	; 0x19c <_ZN14JoystickButton13return_x_dataEv>
+				myJSButton.return_x_data(),
+				myJSButton.return_y_data(),
+				myJSButton.return_button_data()
+			);
+ 3ba:	2d 2f       	mov	r18, r29
+ 3bc:	4c 2f       	mov	r20, r28
+ 3be:	68 2f       	mov	r22, r24
+ 3c0:	83 e1       	ldi	r24, 0x13	; 19
+ 3c2:	91 e0       	ldi	r25, 0x01	; 1
+ 3c4:	0e 94 e8 02 	call	0x5d0	; 0x5d0 <_ZN6RFData13TX_updateDataEhhh>
+				dataSent.bytes[1],
+				myJSButton.return_button_data()
+			);
+			//*/
+		}
+		if (LED_time_ms >= 1000)
+ 3c8:	80 91 2f 01 	lds	r24, 0x012F	; 0x80012f <LED_time_ms>
+ 3cc:	90 91 30 01 	lds	r25, 0x0130	; 0x800130 <LED_time_ms+0x1>
+ 3d0:	a0 91 31 01 	lds	r26, 0x0131	; 0x800131 <LED_time_ms+0x2>
+ 3d4:	b0 91 32 01 	lds	r27, 0x0132	; 0x800132 <LED_time_ms+0x3>
+ 3d8:	88 3e       	cpi	r24, 0xE8	; 232
+ 3da:	93 40       	sbci	r25, 0x03	; 3
+ 3dc:	a1 05       	cpc	r26, r1
+ 3de:	b1 05       	cpc	r27, r1
+ 3e0:	48 f2       	brcs	.-110    	; 0x374 <main+0x4>
+		{
+			LED_time_ms = 0;
+ 3e2:	10 92 2f 01 	sts	0x012F, r1	; 0x80012f <LED_time_ms>
+ 3e6:	10 92 30 01 	sts	0x0130, r1	; 0x800130 <LED_time_ms+0x1>
+ 3ea:	10 92 31 01 	sts	0x0131, r1	; 0x800131 <LED_time_ms+0x2>
+ 3ee:	10 92 32 01 	sts	0x0132, r1	; 0x800132 <LED_time_ms+0x3>
+			LED_PORT = (LED_PORT & (~BOARD_LED)) | ((~LED_PORT) & BOARD_LED);
+ 3f2:	85 b1       	in	r24, 0x05	; 5
+ 3f4:	25 b1       	in	r18, 0x05	; 5
+ 3f6:	91 e0       	ldi	r25, 0x01	; 1
+ 3f8:	92 27       	eor	r25, r18
+ 3fa:	91 70       	andi	r25, 0x01	; 1
+ 3fc:	8e 7f       	andi	r24, 0xFE	; 254
+ 3fe:	89 2b       	or	r24, r25
+ 400:	85 b9       	out	0x05, r24	; 5
+ 402:	b8 cf       	rjmp	.-144    	; 0x374 <main+0x4>
+
+00000404 <_GLOBAL__sub_I_time_ms>:
+		}
+    }
+	return 0;
+}
+ 404:	6f ef       	ldi	r22, 0xFF	; 255
+ 406:	7f ef       	ldi	r23, 0xFF	; 255
+ 408:	81 e0       	ldi	r24, 0x01	; 1
+ 40a:	90 e0       	ldi	r25, 0x00	; 0
+ 40c:	0e 94 d7 00 	call	0x1ae	; 0x1ae <_Z41__static_initialization_and_destruction_0ii>
+ 410:	08 95       	ret
+
+00000412 <_ZN9tagSerial4initEm>:
+WORD tagSerial::waitRead(void)
+{
+	// Read the received data
+	while(!(UCSR0A & _b(RXC0)));
+	return UDR0;
+}
+ 412:	9b 01       	movw	r18, r22
+ 414:	ac 01       	movw	r20, r24
+ 416:	60 e4       	ldi	r22, 0x40	; 64
+ 418:	72 e4       	ldi	r23, 0x42	; 66
+ 41a:	8f e0       	ldi	r24, 0x0F	; 15
+ 41c:	90 e0       	ldi	r25, 0x00	; 0
+ 41e:	0e 94 33 03 	call	0x666	; 0x666 <__udivmodsi4>
+ 422:	da 01       	movw	r26, r20
+ 424:	c9 01       	movw	r24, r18
+ 426:	01 97       	sbiw	r24, 0x01	; 1
+ 428:	a1 09       	sbc	r26, r1
+ 42a:	b1 09       	sbc	r27, r1
+ 42c:	89 2f       	mov	r24, r25
+ 42e:	9a 2f       	mov	r25, r26
+ 430:	ab 2f       	mov	r26, r27
+ 432:	bb 27       	eor	r27, r27
+ 434:	80 93 c5 00 	sts	0x00C5, r24	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7f80c5>
+ 438:	21 50       	subi	r18, 0x01	; 1
+ 43a:	20 93 c4 00 	sts	0x00C4, r18	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7f80c4>
+ 43e:	88 ed       	ldi	r24, 0xD8	; 216
+ 440:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7f80c1>
+ 444:	86 e0       	ldi	r24, 0x06	; 6
+ 446:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7f80c2>
+ 44a:	08 95       	ret
+
+0000044c <_ZN9tagSerial5writeEc>:
+ 44c:	90 91 c0 00 	lds	r25, 0x00C0	; 0x8000c0 <__TEXT_REGION_LENGTH__+0x7f80c0>
+ 450:	95 ff       	sbrs	r25, 5
+ 452:	fc cf       	rjmp	.-8      	; 0x44c <_ZN9tagSerial5writeEc>
+ 454:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7f80c6>
+ 458:	08 95       	ret
+
+0000045a <_ZN9tagSerial5writeEPc>:
+ 45a:	0f 93       	push	r16
+ 45c:	1f 93       	push	r17
+ 45e:	cf 93       	push	r28
+ 460:	8c 01       	movw	r16, r24
+ 462:	c0 e0       	ldi	r28, 0x00	; 0
+ 464:	f8 01       	movw	r30, r16
+ 466:	ec 0f       	add	r30, r28
+ 468:	f1 1d       	adc	r31, r1
+ 46a:	80 81       	ld	r24, Z
+ 46c:	88 23       	and	r24, r24
+ 46e:	21 f0       	breq	.+8      	; 0x478 <_ZN9tagSerial5writeEPc+0x1e>
+ 470:	0e 94 26 02 	call	0x44c	; 0x44c <_ZN9tagSerial5writeEc>
+ 474:	cf 5f       	subi	r28, 0xFF	; 255
+ 476:	f6 cf       	rjmp	.-20     	; 0x464 <_ZN9tagSerial5writeEPc+0xa>
+ 478:	cf 91       	pop	r28
+ 47a:	1f 91       	pop	r17
+ 47c:	0f 91       	pop	r16
+ 47e:	08 95       	ret
+
+00000480 <_ZN6RFDataC1Eh>:
+
+RFData::RFData(UCHAR wSBAddress)
+ 480:	fc 01       	movw	r30, r24
+{
+	this->_startbyte_adr	= wSBAddress;
+ 482:	60 8f       	std	Z+24, r22	; 0x18
+	this->_tx_status		= EMPTY;
+ 484:	82 e0       	ldi	r24, 0x02	; 2
+ 486:	80 83       	st	Z, r24
+	this->_rx_status		= EMPTY;
+ 488:	81 83       	std	Z+1, r24	; 0x01
+	this->_tx_pointer		= 0;
+ 48a:	11 8a       	std	Z+17, r1	; 0x11
+ 48c:	10 8a       	std	Z+16, r1	; 0x10
+	this->_rx_pointer		= 0;
+ 48e:	13 8a       	std	Z+19, r1	; 0x13
+ 490:	12 8a       	std	Z+18, r1	; 0x12
+	this->_tx_iddlingcounter= 0;
+ 492:	14 8a       	std	Z+20, r1	; 0x14
+ 494:	08 95       	ret
+
+00000496 <_ZN6RFData15parityGeneratorEPh>:
+}
+
+void RFData::parityGenerator(UCHAR* buffer)
+{
+ 496:	0f 93       	push	r16
+ 498:	1f 93       	push	r17
+ 49a:	cf 93       	push	r28
+ 49c:	df 93       	push	r29
+ 49e:	00 d0       	rcall	.+0      	; 0x4a0 <_ZN6RFData15parityGeneratorEPh+0xa>
+ 4a0:	00 d0       	rcall	.+0      	; 0x4a2 <_ZN6RFData15parityGeneratorEPh+0xc>
+ 4a2:	cd b7       	in	r28, 0x3d	; 61
+ 4a4:	de b7       	in	r29, 0x3e	; 62
+ 4a6:	8c 01       	movw	r16, r24
+		[PB00]	[PB01]	[PB02]	[PB03]	[PB04]	[PB05]	[PB06]	[PB07]
+	*/
+	
+	int iter;
+	UCHAR dummyWord[DWSIZE+1];
+	for (iter=0; iter<DWSIZE+1; iter++)
+ 4a8:	80 e0       	ldi	r24, 0x00	; 0
+ 4aa:	90 e0       	ldi	r25, 0x00	; 0
+ 4ac:	84 30       	cpi	r24, 0x04	; 4
+ 4ae:	91 05       	cpc	r25, r1
+ 4b0:	4c f4       	brge	.+18     	; 0x4c4 <_ZN6RFData15parityGeneratorEPh+0x2e>
+	{
+		dummyWord[iter] = 0;
+ 4b2:	e1 e0       	ldi	r30, 0x01	; 1
+ 4b4:	f0 e0       	ldi	r31, 0x00	; 0
+ 4b6:	ec 0f       	add	r30, r28
+ 4b8:	fd 1f       	adc	r31, r29
+ 4ba:	e8 0f       	add	r30, r24
+ 4bc:	f9 1f       	adc	r31, r25
+ 4be:	10 82       	st	Z, r1
+		[PB00]	[PB01]	[PB02]	[PB03]	[PB04]	[PB05]	[PB06]	[PB07]
+	*/
+	
+	int iter;
+	UCHAR dummyWord[DWSIZE+1];
+	for (iter=0; iter<DWSIZE+1; iter++)
+ 4c0:	01 96       	adiw	r24, 0x01	; 1
+ 4c2:	f4 cf       	rjmp	.-24     	; 0x4ac <_ZN6RFData15parityGeneratorEPh+0x16>
+ 4c4:	e0 e0       	ldi	r30, 0x00	; 0
+ 4c6:	f0 e0       	ldi	r31, 0x00	; 0
+	{
+		dummyWord[iter] = 0;
+	}
+	// Calculate the parity bytes of row of dataword using XOR operation
+	for (iter=0; iter<8; iter++)
+ 4c8:	e8 30       	cpi	r30, 0x08	; 8
+ 4ca:	f1 05       	cpc	r31, r1
+ 4cc:	0c f0       	brlt	.+2      	; 0x4d0 <_ZN6RFData15parityGeneratorEPh+0x3a>
+ 4ce:	47 c0       	rjmp	.+142    	; 0x55e <_ZN6RFData15parityGeneratorEPh+0xc8>
+	{
+		// In this code, we assume we use 3 byte of dataword and 5 byte of codeword
+		dummyWord[0] = dummyWord[0] ^ _sb(this->_startbyte_adr, iter);
+ 4d0:	49 81       	ldd	r20, Y+1	; 0x01
+ 4d2:	d8 01       	movw	r26, r16
+ 4d4:	58 96       	adiw	r26, 0x18	; 24
+ 4d6:	9c 91       	ld	r25, X
+ 4d8:	21 e0       	ldi	r18, 0x01	; 1
+ 4da:	30 e0       	ldi	r19, 0x00	; 0
+ 4dc:	0e 2e       	mov	r0, r30
+ 4de:	02 c0       	rjmp	.+4      	; 0x4e4 <_ZN6RFData15parityGeneratorEPh+0x4e>
+ 4e0:	22 0f       	add	r18, r18
+ 4e2:	33 1f       	adc	r19, r19
+ 4e4:	0a 94       	dec	r0
+ 4e6:	e2 f7       	brpl	.-8      	; 0x4e0 <_ZN6RFData15parityGeneratorEPh+0x4a>
+ 4e8:	89 2f       	mov	r24, r25
+ 4ea:	90 e0       	ldi	r25, 0x00	; 0
+ 4ec:	82 23       	and	r24, r18
+ 4ee:	93 23       	and	r25, r19
+ 4f0:	0e 2e       	mov	r0, r30
+ 4f2:	02 c0       	rjmp	.+4      	; 0x4f8 <_ZN6RFData15parityGeneratorEPh+0x62>
+ 4f4:	95 95       	asr	r25
+ 4f6:	87 95       	ror	r24
+ 4f8:	0a 94       	dec	r0
+ 4fa:	e2 f7       	brpl	.-8      	; 0x4f4 <_ZN6RFData15parityGeneratorEPh+0x5e>
+ 4fc:	84 27       	eor	r24, r20
+ 4fe:	89 83       	std	Y+1, r24	; 0x01
+		dummyWord[1] = dummyWord[1] ^ _sb(buffer[0], iter);
+ 500:	4a 81       	ldd	r20, Y+2	; 0x02
+ 502:	db 01       	movw	r26, r22
+ 504:	9c 91       	ld	r25, X
+ 506:	89 2f       	mov	r24, r25
+ 508:	90 e0       	ldi	r25, 0x00	; 0
+ 50a:	82 23       	and	r24, r18
+ 50c:	93 23       	and	r25, r19
+ 50e:	0e 2e       	mov	r0, r30
+ 510:	02 c0       	rjmp	.+4      	; 0x516 <_ZN6RFData15parityGeneratorEPh+0x80>
+ 512:	95 95       	asr	r25
+ 514:	87 95       	ror	r24
+ 516:	0a 94       	dec	r0
+ 518:	e2 f7       	brpl	.-8      	; 0x512 <_ZN6RFData15parityGeneratorEPh+0x7c>
+ 51a:	84 27       	eor	r24, r20
+ 51c:	8a 83       	std	Y+2, r24	; 0x02
+		dummyWord[2] = dummyWord[2] ^ _sb(buffer[1], iter);
+ 51e:	9b 81       	ldd	r25, Y+3	; 0x03
+ 520:	11 96       	adiw	r26, 0x01	; 1
+ 522:	8c 91       	ld	r24, X
+ 524:	11 97       	sbiw	r26, 0x01	; 1
+ 526:	48 2f       	mov	r20, r24
+ 528:	50 e0       	ldi	r21, 0x00	; 0
+ 52a:	42 23       	and	r20, r18
+ 52c:	53 23       	and	r21, r19
+ 52e:	0e 2e       	mov	r0, r30
+ 530:	02 c0       	rjmp	.+4      	; 0x536 <_ZN6RFData15parityGeneratorEPh+0xa0>
+ 532:	55 95       	asr	r21
+ 534:	47 95       	ror	r20
+ 536:	0a 94       	dec	r0
+ 538:	e2 f7       	brpl	.-8      	; 0x532 <_ZN6RFData15parityGeneratorEPh+0x9c>
+ 53a:	49 27       	eor	r20, r25
+ 53c:	4b 83       	std	Y+3, r20	; 0x03
+		dummyWord[3] = dummyWord[3] ^ _sb(buffer[2], iter);
+ 53e:	4c 81       	ldd	r20, Y+4	; 0x04
+ 540:	12 96       	adiw	r26, 0x02	; 2
+ 542:	8c 91       	ld	r24, X
+ 544:	90 e0       	ldi	r25, 0x00	; 0
+ 546:	28 23       	and	r18, r24
+ 548:	39 23       	and	r19, r25
+ 54a:	0e 2e       	mov	r0, r30
+ 54c:	02 c0       	rjmp	.+4      	; 0x552 <_ZN6RFData15parityGeneratorEPh+0xbc>
+ 54e:	35 95       	asr	r19
+ 550:	27 95       	ror	r18
+ 552:	0a 94       	dec	r0
+ 554:	e2 f7       	brpl	.-8      	; 0x54e <_ZN6RFData15parityGeneratorEPh+0xb8>
+ 556:	24 27       	eor	r18, r20
+ 558:	2c 83       	std	Y+4, r18	; 0x04
+	for (iter=0; iter<DWSIZE+1; iter++)
+	{
+		dummyWord[iter] = 0;
+	}
+	// Calculate the parity bytes of row of dataword using XOR operation
+	for (iter=0; iter<8; iter++)
+ 55a:	31 96       	adiw	r30, 0x01	; 1
+ 55c:	b5 cf       	rjmp	.-150    	; 0x4c8 <_ZN6RFData15parityGeneratorEPh+0x32>
+		dummyWord[0] = dummyWord[0] ^ _sb(this->_startbyte_adr, iter);
+		dummyWord[1] = dummyWord[1] ^ _sb(buffer[0], iter);
+		dummyWord[2] = dummyWord[2] ^ _sb(buffer[1], iter);
+		dummyWord[3] = dummyWord[3] ^ _sb(buffer[2], iter);
+	}
+	buffer[DWSIZE+1] = (dummyWord[0] << 0) | (dummyWord[1] << 1);
+ 55e:	49 81       	ldd	r20, Y+1	; 0x01
+ 560:	9a 81       	ldd	r25, Y+2	; 0x02
+ 562:	29 2f       	mov	r18, r25
+ 564:	30 e0       	ldi	r19, 0x00	; 0
+ 566:	22 0f       	add	r18, r18
+ 568:	33 1f       	adc	r19, r19
+ 56a:	42 2b       	or	r20, r18
+	buffer[DWSIZE+1] = buffer[DWSIZE+1] | (dummyWord[2] << 2) | (dummyWord[3] << 3);
+ 56c:	9b 81       	ldd	r25, Y+3	; 0x03
+ 56e:	29 2f       	mov	r18, r25
+ 570:	30 e0       	ldi	r19, 0x00	; 0
+ 572:	22 0f       	add	r18, r18
+ 574:	33 1f       	adc	r19, r19
+ 576:	22 0f       	add	r18, r18
+ 578:	33 1f       	adc	r19, r19
+ 57a:	9c 81       	ldd	r25, Y+4	; 0x04
+ 57c:	89 2f       	mov	r24, r25
+ 57e:	90 e0       	ldi	r25, 0x00	; 0
+ 580:	88 0f       	add	r24, r24
+ 582:	99 1f       	adc	r25, r25
+ 584:	88 0f       	add	r24, r24
+ 586:	99 1f       	adc	r25, r25
+ 588:	88 0f       	add	r24, r24
+ 58a:	99 1f       	adc	r25, r25
+ 58c:	24 2b       	or	r18, r20
+ 58e:	82 2b       	or	r24, r18
+	buffer[DWSIZE+1] = buffer[DWSIZE+1] | ((~(buffer[DWSIZE+1]) << 4) & 0xF0);
+ 590:	28 2f       	mov	r18, r24
+ 592:	30 e0       	ldi	r19, 0x00	; 0
+ 594:	20 95       	com	r18
+ 596:	30 95       	com	r19
+ 598:	22 95       	swap	r18
+ 59a:	32 95       	swap	r19
+ 59c:	30 7f       	andi	r19, 0xF0	; 240
+ 59e:	32 27       	eor	r19, r18
+ 5a0:	20 7f       	andi	r18, 0xF0	; 240
+ 5a2:	32 27       	eor	r19, r18
+ 5a4:	82 2b       	or	r24, r18
+ 5a6:	fb 01       	movw	r30, r22
+ 5a8:	84 83       	std	Z+4, r24	; 0x04
+	// Calculate the parity bytes of column of dataword using XOR operation
+	buffer[DWSIZE] = this->_startbyte_adr ^ buffer[0] ^ buffer[1] ^ buffer[2];
+ 5aa:	d8 01       	movw	r26, r16
+ 5ac:	58 96       	adiw	r26, 0x18	; 24
+ 5ae:	3c 91       	ld	r19, X
+ 5b0:	80 81       	ld	r24, Z
+ 5b2:	21 81       	ldd	r18, Z+1	; 0x01
+ 5b4:	92 81       	ldd	r25, Z+2	; 0x02
+ 5b6:	83 27       	eor	r24, r19
+ 5b8:	82 27       	eor	r24, r18
+ 5ba:	89 27       	eor	r24, r25
+ 5bc:	83 83       	std	Z+3, r24	; 0x03
+}
+ 5be:	0f 90       	pop	r0
+ 5c0:	0f 90       	pop	r0
+ 5c2:	0f 90       	pop	r0
+ 5c4:	0f 90       	pop	r0
+ 5c6:	df 91       	pop	r29
+ 5c8:	cf 91       	pop	r28
+ 5ca:	1f 91       	pop	r17
+ 5cc:	0f 91       	pop	r16
+ 5ce:	08 95       	ret
+
+000005d0 <_ZN6RFData13TX_updateDataEhhh>:
+
+BOOL RFData::TX_updateData(UCHAR x_data, UCHAR y_data, UCHAR button_data)
+{
+ 5d0:	cf 93       	push	r28
+ 5d2:	df 93       	push	r29
+	// Updating and begin transmitting only if the data buffer is EMPTY before
+	if (this->_tx_status == EMPTY)
+ 5d4:	fc 01       	movw	r30, r24
+ 5d6:	30 81       	ld	r19, Z
+ 5d8:	32 30       	cpi	r19, 0x02	; 2
+ 5da:	79 f4       	brne	.+30     	; 0x5fa <_ZN6RFData13TX_updateDataEhhh+0x2a>
+ 5dc:	ec 01       	movw	r28, r24
+	{
+		this->_tx_buff[XDATA]			= x_data;
+ 5de:	62 83       	std	Z+2, r22	; 0x02
+		this->_tx_buff[YDATA]			= y_data;
+ 5e0:	43 83       	std	Z+3, r20	; 0x03
+		this->_tx_buff[BUTTONDATA]		= button_data;
+ 5e2:	24 83       	std	Z+4, r18	; 0x04
+		this->parityGenerator(this->_tx_buff);
+ 5e4:	bc 01       	movw	r22, r24
+ 5e6:	6e 5f       	subi	r22, 0xFE	; 254
+ 5e8:	7f 4f       	sbci	r23, 0xFF	; 255
+ 5ea:	0e 94 4b 02 	call	0x496	; 0x496 <_ZN6RFData15parityGeneratorEPh>
+		// Change tx status so that data ready to be transmitted
+		this->_tx_status = READY;
+ 5ee:	18 82       	st	Y, r1
+		// Trigger transmitter by sending idling byte
+		tagSerial::write(IDLING_BYTE);
+ 5f0:	8a e0       	ldi	r24, 0x0A	; 10
+ 5f2:	0e 94 26 02 	call	0x44c	; 0x44c <_ZN9tagSerial5writeEc>
+		return 1;
+ 5f6:	81 e0       	ldi	r24, 0x01	; 1
+ 5f8:	01 c0       	rjmp	.+2      	; 0x5fc <_ZN6RFData13TX_updateDataEhhh+0x2c>
+	} else {
+		return 0;
+ 5fa:	80 e0       	ldi	r24, 0x00	; 0
+	}
+}
+ 5fc:	df 91       	pop	r29
+ 5fe:	cf 91       	pop	r28
+ 600:	08 95       	ret
+
+00000602 <_ZN6RFData16ISR_transmittingEv>:
+
+void RFData::ISR_transmitting(void)
+{
+ 602:	cf 93       	push	r28
+ 604:	df 93       	push	r29
+ 606:	ec 01       	movw	r28, r24
+	switch(this->_tx_status)
+ 608:	88 81       	ld	r24, Y
+ 60a:	81 30       	cpi	r24, 0x01	; 1
+ 60c:	69 f0       	breq	.+26     	; 0x628 <_ZN6RFData16ISR_transmittingEv+0x26>
+ 60e:	18 f0       	brcs	.+6      	; 0x616 <_ZN6RFData16ISR_transmittingEv+0x14>
+ 610:	82 30       	cpi	r24, 0x02	; 2
+ 612:	e9 f0       	breq	.+58     	; 0x64e <_ZN6RFData16ISR_transmittingEv+0x4c>
+ 614:	25 c0       	rjmp	.+74     	; 0x660 <_ZN6RFData16ISR_transmittingEv+0x5e>
+	{
+	case READY:
+		// change the status
+		this->_tx_status = BUSY;
+ 616:	81 e0       	ldi	r24, 0x01	; 1
+ 618:	88 83       	st	Y, r24
+		// Initiating other transmit parameter
+		this->_tx_pointer = 0;
+ 61a:	19 8a       	std	Y+17, r1	; 0x11
+ 61c:	18 8a       	std	Y+16, r1	; 0x10
+		this->_tx_iddlingcounter = 0;
+ 61e:	1c 8a       	std	Y+20, r1	; 0x14
+		// Send start byte to the target device
+		tagSerial::write(this->_startbyte_adr);
+ 620:	88 8d       	ldd	r24, Y+24	; 0x18
+ 622:	0e 94 26 02 	call	0x44c	; 0x44c <_ZN9tagSerial5writeEc>
+		break;
+ 626:	1c c0       	rjmp	.+56     	; 0x660 <_ZN6RFData16ISR_transmittingEv+0x5e>
+	case BUSY:
+		// Sending the message
+		tagSerial::write(this->_tx_buff[this->_tx_pointer]);
+ 628:	e8 89       	ldd	r30, Y+16	; 0x10
+ 62a:	f9 89       	ldd	r31, Y+17	; 0x11
+ 62c:	ec 0f       	add	r30, r28
+ 62e:	fd 1f       	adc	r31, r29
+ 630:	82 81       	ldd	r24, Z+2	; 0x02
+ 632:	0e 94 26 02 	call	0x44c	; 0x44c <_ZN9tagSerial5writeEc>
+		this->_tx_pointer++;
+ 636:	88 89       	ldd	r24, Y+16	; 0x10
+ 638:	99 89       	ldd	r25, Y+17	; 0x11
+ 63a:	01 96       	adiw	r24, 0x01	; 1
+ 63c:	99 8b       	std	Y+17, r25	; 0x11
+ 63e:	88 8b       	std	Y+16, r24	; 0x10
+		if (this->_tx_pointer >= CWSIZE)
+ 640:	05 97       	sbiw	r24, 0x05	; 5
+ 642:	70 f0       	brcs	.+28     	; 0x660 <_ZN6RFData16ISR_transmittingEv+0x5e>
+		{
+			this->_tx_pointer = 0;
+ 644:	19 8a       	std	Y+17, r1	; 0x11
+ 646:	18 8a       	std	Y+16, r1	; 0x10
+			this->_tx_status = EMPTY;
+ 648:	82 e0       	ldi	r24, 0x02	; 2
+ 64a:	88 83       	st	Y, r24
+ 64c:	09 c0       	rjmp	.+18     	; 0x660 <_ZN6RFData16ISR_transmittingEv+0x5e>
+			
+		}
+		break;
+	case EMPTY:
+		// Sending idling byte
+		if (this->_tx_iddlingcounter < 3)
+ 64e:	8c 89       	ldd	r24, Y+20	; 0x14
+ 650:	83 30       	cpi	r24, 0x03	; 3
+ 652:	30 f4       	brcc	.+12     	; 0x660 <_ZN6RFData16ISR_transmittingEv+0x5e>
+		{
+			tagSerial::write(IDLING_BYTE);
+ 654:	8a e0       	ldi	r24, 0x0A	; 10
+ 656:	0e 94 26 02 	call	0x44c	; 0x44c <_ZN9tagSerial5writeEc>
+			this->_tx_iddlingcounter++;
+ 65a:	8c 89       	ldd	r24, Y+20	; 0x14
+ 65c:	8f 5f       	subi	r24, 0xFF	; 255
+ 65e:	8c 8b       	std	Y+20, r24	; 0x14
+		}
+		break;
+	}
+}
+ 660:	df 91       	pop	r29
+ 662:	cf 91       	pop	r28
+ 664:	08 95       	ret
+
+00000666 <__udivmodsi4>:
+ 666:	a1 e2       	ldi	r26, 0x21	; 33
+ 668:	1a 2e       	mov	r1, r26
+ 66a:	aa 1b       	sub	r26, r26
+ 66c:	bb 1b       	sub	r27, r27
+ 66e:	fd 01       	movw	r30, r26
+ 670:	0d c0       	rjmp	.+26     	; 0x68c <__udivmodsi4_ep>
+
+00000672 <__udivmodsi4_loop>:
+ 672:	aa 1f       	adc	r26, r26
+ 674:	bb 1f       	adc	r27, r27
+ 676:	ee 1f       	adc	r30, r30
+ 678:	ff 1f       	adc	r31, r31
+ 67a:	a2 17       	cp	r26, r18
+ 67c:	b3 07       	cpc	r27, r19
+ 67e:	e4 07       	cpc	r30, r20
+ 680:	f5 07       	cpc	r31, r21
+ 682:	20 f0       	brcs	.+8      	; 0x68c <__udivmodsi4_ep>
+ 684:	a2 1b       	sub	r26, r18
+ 686:	b3 0b       	sbc	r27, r19
+ 688:	e4 0b       	sbc	r30, r20
+ 68a:	f5 0b       	sbc	r31, r21
+
+0000068c <__udivmodsi4_ep>:
+ 68c:	66 1f       	adc	r22, r22
+ 68e:	77 1f       	adc	r23, r23
+ 690:	88 1f       	adc	r24, r24
+ 692:	99 1f       	adc	r25, r25
+ 694:	1a 94       	dec	r1
+ 696:	69 f7       	brne	.-38     	; 0x672 <__udivmodsi4_loop>
+ 698:	60 95       	com	r22
+ 69a:	70 95       	com	r23
+ 69c:	80 95       	com	r24
+ 69e:	90 95       	com	r25
+ 6a0:	9b 01       	movw	r18, r22
+ 6a2:	ac 01       	movw	r20, r24
+ 6a4:	bd 01       	movw	r22, r26
+ 6a6:	cf 01       	movw	r24, r30
+ 6a8:	08 95       	ret
+
+000006aa <__tablejump2__>:
+ 6aa:	ee 0f       	add	r30, r30
+ 6ac:	ff 1f       	adc	r31, r31
+ 6ae:	05 90       	lpm	r0, Z+
+ 6b0:	f4 91       	lpm	r31, Z
+ 6b2:	e0 2d       	mov	r30, r0
+ 6b4:	09 94       	ijmp
+
+000006b6 <_exit>:
+ 6b6:	f8 94       	cli
+
+000006b8 <__stop_program>:
+ 6b8:	ff cf       	rjmp	.-2      	; 0x6b8 <__stop_program>
